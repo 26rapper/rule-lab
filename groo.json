@@ -1,0 +1,16 @@
+{
+  "groo": 1,
+  "no": "002",
+  "name": "Rule Lab",
+  "name_ko": "규칙 연구실",
+  "kind": "log",
+  "status": "ACTIVE",
+  "line": "새 매매 규칙을 찾는 과정을 그대로 보여 주는 기록",
+  "url": "https://26rapper.github.io/rule-lab/",
+  "started": "2026-11-21",
+  "icon": { "src": "https://26rapper.github.io/rule-lab/icon.svg", "frame": { "position": "50% 50%", "zoom": 1 } },
+  "accent": "#15120f",
+  "money": false,
+  "notice": "일부 내용은 가려 둠",
+  "update_note": "과정이 바뀔 때마다 고침"
+}
