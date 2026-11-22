@@ -5,19 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>규칙 연구실 — Rule Lab</title>
 <meta name="description" content="새 매매 규칙을 찾는 과정을 그대로 보여 주는 기록">
-<meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#0c0a09">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f3f2ef">
 <meta property="og:type" content="website">
 <meta property="og:title" content="규칙 연구실 — Rule Lab">
 <meta property="og:description" content="새 매매 규칙을 찾는 과정을 그대로 보여 주는 기록">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <style>
-/* 규칙 연구실 화면(2판 · 2026-11-22). 화면 일곱(요약 · 볼 곳 · 모은 글 · 고르기 · 후보 · 실험 · 기록)을 위의 줄에서 고른다.
-   글과 숫자는 옆의 자료 파일 다섯 개에서 읽는다. 이 파일에는 자료의 글을 적어 두지 않는다.
-   바깥 글꼴 · 바깥 스크립트 · 바깥 요청은 없다. 색은 아래 :root 한 곳에서 정한다(문로그와 같은 밤 색 · 기기 설정과 상관없이 늘 이 색).
-   상태 색 다섯: 끝남 초록 · 진행 중 파랑 · 주의 주황 · 오류 빨강 · 기다림과 시작 전 회색. 포인트 색은 강조와 누를 수 있는 것에만 쓴다. */
-:root{--bg:#0c0a09;--card:#15120f;--ink:#f3eee7;--mute:#bfb6ab;--line:#2d2925;--a:#dcecbf;--done:#7ccf9a;--run:#7fb4f5;--warn:#f2a46b;--err:#f0706a;--wait:#a59c91;
-  --n1:color-mix(in srgb,var(--mute) 72%,var(--card));--n2:color-mix(in srgb,var(--mute) 42%,var(--card));--n3:color-mix(in srgb,var(--mute) 20%,var(--card));--soft:color-mix(in srgb,var(--ink) 4%,var(--card));--r:12px;color-scheme:dark}
+/* 규칙 연구실 화면(3판 · 2026-11-22). 화면 일곱(요약 · 볼 곳 · 모은 글 · 고르기 · 후보 · 실험 · 기록)을 위의 줄에서 고른다.
+   글과 숫자는 옆의 자료 파일 여섯 개에서 읽는다. 이 파일에는 자료의 글을 적어 두지 않는다.
+   바깥 글꼴 · 바깥 스크립트 · 바깥 요청은 없다. 색은 아래 :root 한 곳에서 정한다(밝은 바탕이 기본 · 기기 설정과 상관없이 늘 이 색 · 어두운 바탕은 맨 아래 단추로만).
+   상태 색 다섯: 완료 초록 · 진행 중 파랑 · 주의와 확인 기다림 주황 · 오류 빨강 · 기다림과 시작 전 회색. 포인트 색은 누를 수 있는 것에만 쓴다. 3판에서 덧붙인 스타일은 맨 아래 '3판' 묶음에 있다. */
+:root{--bg:#f3f2ef;--card:#ffffff;--ink:#22262a;--mute:#5b6168;--line:#e4e2dd;--a:#17694d;--done:#1a7046;--run:#1f5fbf;--warn:#8a5a00;--err:#b3261e;--wait:#5b6168;--wi:#c98a12;--s1:#c9cdd1;--s2:#8b96a0;--s3:#36424d;
+  --n1:color-mix(in srgb,var(--mute) 72%,var(--card));--n2:color-mix(in srgb,var(--mute) 42%,var(--card));--n3:color-mix(in srgb,var(--mute) 20%,var(--card));--soft:#f6f5f2;--r:12px;color-scheme:light}
+:root[data-bg="dark"]{--bg:#15171a;--card:#1d2024;--ink:#ecebe7;--mute:#b3b0a9;--line:#31353b;--a:#7fcfae;--done:#7fd3a2;--run:#8fbaf7;--warn:#f0b65c;--err:#f48a82;--wait:#b3b0a9;--wi:#f0b65c;--s1:#4b535b;--s2:#8f9aa5;--s3:#e1e6ea;--soft:#24282d;color-scheme:dark}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink)}
 .nx{max-width:1120px;margin-inline:auto;font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI","Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.6;word-break:keep-all;overflow-wrap:anywhere;display:flex;flex-direction:column;gap:20px;padding:24px 16px 56px}
@@ -282,6 +283,139 @@ body{margin:0;background:var(--bg);color:var(--ink)}
 .nx-keys-dl dd{color:var(--mute);align-self:center}
 .nx-foot{font-size:13px;color:var(--mute);display:flex;flex-direction:column;gap:6px;align-items:flex-start}
 .nx-foot p:empty{display:none}
+
+/* ---------- 3판(2026-11-22): 밝은 바탕이 기본 · 요약 다섯 영역 · 화면마다 숫자 요약 줄 · 글자 크기(큰 숫자 28~36 · 영역 제목 18~21 · 일반 14~16 · 보조 13) ---------- */
+.nx{font-size:15px;gap:16px}
+.nx-title{font-size:22px;letter-spacing:-.02em}
+.nx-lede{font-size:14px}
+.nx-h2{font-size:21px;font-weight:700}
+.nx-h3{font-size:18px}
+.nx-page{gap:16px}
+.nx-card{box-shadow:0 1px 2px rgba(34,38,42,.05)}
+.nx-val>b{font-size:34px}
+.nx-lgd-name,.nx-hb-name,.nx-sel,.nx-btn,.nx-golink,.nx-fold>summary,.nx-pstep .nx-bul,.nx-glo dd,.nx-chg-r>span,.nx-empty,.nx-load{font-size:14px}
+.nx-b.k-done{color:var(--done)}
+.nx-b.k-run{color:var(--run)}
+.nx-b.k-warn{color:var(--warn)}
+.nx-b.k-err{color:var(--err)}
+.nx-b.k-wait{color:var(--wait)}
+.nx-i.k-warn{color:var(--wi)}
+.nx-i.k-chev{color:var(--mute)}
+.nx details[open]>summary>.nx-i.k-chev{transform:rotate(180deg)}
+.nx-tabs{gap:2px;padding:0;border-radius:0;background:none;border-bottom:1px solid var(--line)}
+.nx-tab{flex:0 0 auto;flex-direction:row;min-width:0;min-height:44px;padding:10px 14px;border-radius:0;font-size:15px;font-weight:500}
+.nx-tab svg{display:none}
+.nx-tab[aria-selected="true"]{background:none;font-weight:700;box-shadow:inset 0 -2px 0 var(--a)}
+.nx-glance{display:flex;flex-wrap:wrap;gap:10px}
+.nx-glance li{flex:1 1 7.5rem;padding:11px 12px;border:0;border-radius:10px;background:var(--soft)}
+.nx-glance .nx-k{font-size:14px}
+.nx-glance b{font-weight:700}
+/* 요약 배치: 지금 전체 현황(폭 전체) → 지금 확인할 일 | 앞으로 진행할 일 · 전체 진행 단계 → 자료 검토 현황(폭 전체). 좁으면 같은 차례로 한 줄. 두 칸의 아래 끝은 맞춘다 */
+.lt-home{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.lt-side{display:flex;flex-direction:column;gap:16px;min-width:0}
+.lt-side>.nx-card:last-child{flex:1}
+.lt-home>.nx-card,.lt-side>.nx-card{gap:12px}
+@media (min-width:900px){.lt-home:not(.is-one){grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);grid-template-areas:"a a" "b side" "c c"}.lt-home:not(.is-one) .lt-a{grid-area:a}.lt-home:not(.is-one) .lt-b{grid-area:b}.lt-home:not(.is-one) .lt-side{grid-area:side}.lt-home:not(.is-one) .lt-c{grid-area:c}}
+.lt-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 12px}
+.lt-h{font-size:20px;font-weight:700;line-height:1.3;letter-spacing:-.01em}
+.lt-sub,.lt-note{font-size:13px;line-height:1.5;color:var(--mute)}
+.lt-sub-h{font-size:14px;font-weight:700;line-height:1.4}
+.lt-sub-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 10px;margin-bottom:10px}
+.lt-sub-row>span{font-size:13px;font-weight:500;color:var(--mute)}
+.lt-empty{font-size:14px;line-height:1.55;color:var(--mute)}
+.lt-lead{font-size:16px;line-height:1.55;font-weight:500}
+/* 큰 숫자 칸(요약 · 화면마다 맨 위 숫자 요약 줄 · 모은 글의 거르기 단추) */
+.lt-stats{display:flex;flex-wrap:wrap;gap:10px}
+.lt-stat{flex:1 1 7.5rem;display:flex;flex-direction:column;gap:2px;min-width:0;padding:11px 12px;border:2px solid transparent;border-radius:10px;background:var(--soft)}
+.lt-stat dt{font-size:14px;font-weight:600;line-height:1.4;color:var(--mute)}
+.lt-num{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 3px;font-variant-numeric:tabular-nums}
+.lt-num b{font-size:28px;font-weight:700;line-height:1.2;letter-spacing:-.02em;color:var(--ink)}
+.lt-num span{font-size:16px;font-weight:600;color:var(--mute)}
+.lt-hint{font-size:13px;line-height:1.45;color:var(--mute)}
+@media (min-width:700px){.lt-stats,.nx-glance{gap:12px}.lt-stat,.nx-glance li{padding:13px 15px}.lt-num b,.nx-glance b{font-size:34px}}
+.nx-filter.lt-stats .nx-fbtn{flex:1 1 7.5rem;flex-direction:column;align-items:flex-start;gap:2px;min-height:0;padding:11px 12px;border:2px solid transparent;border-radius:10px;background:var(--soft);font-size:14px;font-weight:600;color:var(--mute);text-align:left}
+.nx-filter.lt-stats .nx-fbtn:hover{border-color:var(--s1)}
+.nx-filter.lt-stats .nx-fbtn[aria-pressed="true"]{background:color-mix(in srgb,var(--a) 10%,var(--card));border-color:var(--a);color:var(--ink)}
+.nx-filter.lt-stats .nx-fbtn .lt-num b{color:var(--ink)}
+/* 개수 표 */
+.lt-tally{display:flex;flex-wrap:wrap;gap:8px}
+.lt-chip{display:inline-block;padding:4px 11px 4px 9px;border:1px solid transparent;border-radius:999px;background:var(--soft);font-size:14px;font-weight:600;line-height:1.4;color:var(--ink)}
+.lt-chip .nx-i{vertical-align:-3px;margin-right:6px}
+.lt-chip b{font-variant-numeric:tabular-nums}
+.lt-chip.k-done{background:color-mix(in srgb,var(--done) 14%,var(--card));color:var(--done)}
+.lt-chip.k-run{background:color-mix(in srgb,var(--run) 14%,var(--card));color:var(--run)}
+.lt-chip.k-warn{background:color-mix(in srgb,var(--warn) 16%,var(--card));color:var(--warn)}
+.lt-chip.k-err{background:color-mix(in srgb,var(--err) 14%,var(--card));color:var(--err)}
+.lt-chip.k-wait,.lt-chip.k-todo{color:var(--wait)}
+.lt-chip.is-zero{background:none;border:1px dashed var(--s1);color:var(--mute);font-weight:500}
+.lt-chip.is-zero .nx-i{color:var(--mute)}
+/* 제목과 한 줄만 보이고 누르면 펼쳐지는 줄 */
+.lt-groups,.lt-e-groups{display:flex;flex-direction:column;gap:12px}
+.lt-grp{display:flex;flex-direction:column}
+.lt-grp-h{display:flex;align-items:center;gap:6px;padding-bottom:7px;font-size:14px;font-weight:700;line-height:1.4}
+.lt-grp.k-err .lt-grp-h{color:var(--err)}
+.lt-grp.k-warn .lt-grp-h{color:var(--warn)}
+.lt-grp .lt-empty{padding-bottom:6px}
+.lt-row{border-top:1px solid var(--line)}
+.lt-row>summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:1px;align-items:center;min-height:44px;padding:11px 0}
+.lt-row>summary::-webkit-details-marker,.lt-step summary::-webkit-details-marker{display:none}
+.lt-t1{grid-column:1;font-size:15px;font-weight:600;line-height:1.45}
+.lt-t2{grid-column:1;font-size:13px;line-height:1.5;color:var(--mute)}
+.lt-row>summary>.nx-i{grid-column:2;grid-row:1/span 2}
+.lt-more{display:grid;gap:10px;padding:2px 0 14px}
+.lt-kv{display:grid;gap:8px}
+.lt-kv dt{font-size:13px;font-weight:600;line-height:1.5;color:var(--mute)}
+.lt-kv dd{font-size:15px;line-height:1.6}
+/* 앞으로 진행할 일 */
+.lt-e-group{display:flex;flex-direction:column;gap:4px}
+.lt-e-group+.lt-e-group{padding-top:12px;border-top:1px solid var(--line)}
+.lt-e-group .lt-sub-h{color:var(--mute)}
+.lt-e-item{display:grid;padding:4px 0}
+.lt-e-item b{font-size:14px;line-height:1.45}
+.lt-e-item span{font-size:15px;line-height:1.55}
+/* 전체 진행 단계: 지금 하는 단계만 크게 */
+.lt-steps{display:flex;flex-direction:column}
+.lt-step{position:relative;padding-left:42px}
+.lt-step::before{content:"";position:absolute;left:13px;top:36px;bottom:-8px;width:2px;background:var(--line)}
+.lt-step:last-child::before{display:none}
+.lt-node{position:absolute;left:0;top:8px;display:grid;place-items:center;width:28px;height:28px;border:2px dashed var(--s1);border-radius:50%;background:var(--card);font-size:13px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;color:var(--mute)}
+.lt-step.k-run>.lt-node{border:0;background:var(--run);color:var(--card);box-shadow:0 0 0 4px color-mix(in srgb,var(--run) 16%,var(--card))}
+.lt-step.k-warn>.lt-node{border:2px solid var(--wi);background:color-mix(in srgb,var(--warn) 16%,var(--card));color:var(--warn)}
+.lt-step.k-done>.lt-node{border:0;background:var(--done);color:var(--card)}
+.lt-step.k-err>.lt-node{border:0;background:var(--err);color:var(--card)}
+.lt-step.k-wait>.lt-node{border:2px solid var(--s2)}
+.lt-step summary{list-style:none;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;gap:3px 10px;min-height:44px;padding:9px 0}
+.lt-step-name{font-size:15px;font-weight:600;line-height:1.4;color:var(--mute)}
+.lt-step.is-now .lt-step-name{font-size:18px;font-weight:700;color:var(--ink)}
+.lt-step-line{flex-basis:100%;font-size:15px;line-height:1.55}
+.lt-step summary>.nx-i.k-chev{margin-left:auto}
+/* 자료 검토 현황: 막대는 회청색 세 단계(상태 색을 쓰지 않는다). 가장 옅은 칸은 테두리를 둘러 모양이 보이게 한다 */
+.lt-c-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.lt-c-grid>div{min-width:0}
+@media (min-width:900px){.lt-c-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:36px}}
+.lt-stack{display:flex;gap:2px;height:24px}
+.lt-stack i{display:block;flex-basis:0;min-width:4px;border-radius:3px}
+.lt-s1{background:var(--s1);box-shadow:inset 0 0 0 1px var(--s2)}
+.lt-s2{background:var(--s2)}
+.lt-s3{background:var(--s3)}
+.lt-sw{display:inline-block;flex:none;width:10px;height:10px;border-radius:3px}
+.lt-lgd{display:grid;gap:4px;margin-top:10px}
+.lt-lgd li{display:flex;align-items:center;gap:8px;font-size:15px;line-height:1.5}
+.lt-val{margin-left:auto;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lt-ratio{display:grid;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line)}
+.lt-ratio-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 10px}
+.lt-ratio-top>span:last-child{font-size:13px;color:var(--mute)}
+.lt-meter{height:6px;margin-top:5px;border-radius:3px;background:color-mix(in srgb,var(--ink) 8%,var(--card));overflow:hidden}
+.lt-meter i{display:block;height:100%;min-width:3px;border-radius:3px;background:var(--s3)}
+.lt-hb{display:grid;gap:12px}
+.lt-hb-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:15px;line-height:1.5}
+.lt-bar{height:10px;min-width:3px;margin-top:5px;border-radius:3px;background:var(--s3)}
+.lt-bar.is-out{border:1.5px solid var(--s2);background:none}
+.lt-day{display:grid;gap:8px}
+.lt-day+.lt-day{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
+.lt-day-date{font-size:14px;font-weight:700;line-height:1.4}
+.lt-c-foot{display:flex;flex-wrap:wrap;align-items:center;gap:2px 12px;padding-top:14px;border-top:1px solid var(--line);font-size:15px}
+.lt-c-foot .nx-golink{min-height:32px}
 </style>
 </head>
 <body>
@@ -300,7 +434,7 @@ body{margin:0;background:var(--bg);color:var(--ink)}
   <symbol id="nx-i-clock" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 4.6V8l2.3 1.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="nx-i-arrow" viewBox="0 0 16 16"><path d="M2.5 8h10M9 4.2L12.8 8 9 11.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="nx-i-search" viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.6 10.6L14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
-  <symbol id="nx-t-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></g></symbol>
+  <symbol id="nx-i-chev" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>  <symbol id="nx-t-home" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></g></symbol>
   <symbol id="nx-t-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></g></symbol>
   <symbol id="nx-t-inbox" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 13.5l2.4-8h11.2l2.4 8v5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M4 13.5h4.5l1 2.5h5l1-2.5H20"/></g></symbol>
   <symbol id="nx-t-filter" viewBox="0 0 24 24"><path d="M4 5.5h16l-6.2 7.2v5.6l-3.6 1.9v-7.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
@@ -335,50 +469,52 @@ body{margin:0;background:var(--bg);color:var(--ink)}
 <div class="nx-load" id="load" role="status"><span id="load-text">자료를 불러오는 중이에요.</span><button type="button" class="nx-btn" id="retry" hidden>다시 불러오기</button></div>
 <noscript><p class="nx-load">이 화면은 브라우저의 자바스크립트가 켜져 있어야 보여요.</p></noscript>
 
-<!-- 요약: 지금 상황 → 달라진 것 → 확인이 필요한 것 → 지금 위치 → 앞으로 -->
+<!-- 요약: 지금 전체 현황 → 지금 확인할 일 → 앞으로 진행할 일 → 전체 진행 단계 → 자료 검토 현황 -->
 <section class="nx-page" id="home" role="tabpanel" aria-label="요약">
-  <div class="nx-hero">
-    <div class="nx-hero-say">
-      <p class="nx-k">지금 상황</p>
-      <p class="nx-say" id="say"></p>
-      <button type="button" class="nx-golink" data-go="inbox">모은 글 보러 가기<svg class="nx-i" viewBox="0 0 16 16" aria-hidden="true"><use href="#nx-i-arrow"/></svg></button>
+  <div class="lt-home" id="home-grid">
+    <article class="nx-card lt-a" id="sec-a" aria-labelledby="now-h">
+      <div class="lt-head"><h2 class="lt-h" id="now-h">지금 전체 현황</h2><p class="lt-sub" id="a-asof"></p></div>
+      <p class="lt-lead" id="a-say"></p>
+      <dl class="lt-stats" id="a-stats"></dl>
+    </article>
+    <article class="nx-card lt-b" id="sec-b" aria-labelledby="chk-h" hidden>
+      <div class="lt-head"><h2 class="lt-h" id="chk-h">지금 확인할 일</h2><p class="lt-sub">누르면 자세한 내용이 펼쳐져요</p></div>
+      <ul class="lt-tally" id="b-tally"></ul>
+      <div class="lt-groups" id="b-groups"></div>
+    </article>
+    <div class="lt-side" id="home-side">
+      <article class="nx-card lt-e" id="sec-e" aria-labelledby="next-h" hidden>
+        <div class="lt-head"><h2 class="lt-h" id="next-h">앞으로 진행할 일</h2></div>
+        <div class="lt-e-groups" id="e-groups"></div>
+      </article>
+      <article class="nx-card lt-d" id="sec-d" aria-labelledby="flow-h" hidden>
+        <div class="lt-head"><h2 class="lt-h" id="flow-h">전체 진행 단계</h2></div>
+        <ul class="lt-tally" id="d-tally" aria-label="상태마다 센 단계 수"></ul>
+        <ol class="lt-steps" id="d-steps" aria-label="전체 과정"></ol>
+      </article>
     </div>
-    <article class="nx-card" id="today">
-      <div class="nx-figs">
-        <div><p class="nx-k">모은 글</p><p class="nx-fig"><b id="fig-total">—</b><span>건</span></p></div>
-        <div><p class="nx-k">실험 후보</p><p class="nx-fig"><b id="fig-cand">—</b><span>개</span></p></div>
+    <article class="nx-card lt-c" id="sec-c" aria-labelledby="review-h" hidden>
+      <div class="lt-head"><h2 class="lt-h" id="review-h">자료 검토 현황</h2></div>
+      <div class="lt-c-grid">
+        <div id="c-cat">
+          <h3 class="lt-sub-h lt-sub-row">모은 글의 분류 <span id="c-total"></span></h3>
+          <div class="lt-stack" id="c-stack" role="img"></div>
+          <ul class="lt-lgd" id="c-lgd"></ul>
+          <ul class="lt-ratio" id="c-ratio"></ul>
+        </div>
+        <div id="c-res-part">
+          <h3 class="lt-sub-h lt-sub-row">자세히 본 글의 결과 <span id="c-res-total"></span></h3>
+          <div class="lt-hb" id="c-res"></div>
+        </div>
+        <div id="c-day-part">
+          <h3 class="lt-sub-h lt-sub-row">최근 변화 <span>날마다</span></h3>
+          <ul id="c-days"></ul>
+          <p class="lt-note" id="c-days-note"></p>
+        </div>
       </div>
-      <div class="nx-stack" id="sift-wrap">
-        <p class="nx-k">모은 글을 이렇게 걸렀어요</p>
-        <div class="nx-stack" id="sift"></div>
-      </div>
-      <p class="nx-after" id="sift-after" hidden></p>
+      <p class="lt-c-foot" id="c-foot" hidden><span id="c-foot-text"></span><button type="button" class="nx-golink" data-go="cand-drop-card">후보 화면에서 보기<svg class="nx-i" viewBox="0 0 16 16" aria-hidden="true"><use href="#nx-i-arrow"/></svg></button></p>
     </article>
   </div>
-  <div class="nx-grid nx-g32">
-    <article class="nx-card" id="chg-card" hidden>
-      <div><h2 class="nx-h3">지난 자료 뒤로 달라진 것</h2><p class="nx-small nx-mute" id="chg-sub"></p></div>
-      <div class="nx-chg" id="chg-new"></div>
-      <button type="button" class="nx-golink" data-go="changes" id="chg-more" hidden>그전에 달라진 것까지 보기<svg class="nx-i" viewBox="0 0 16 16" aria-hidden="true"><use href="#nx-i-arrow"/></svg></button>
-    </article>
-    <article class="nx-card" id="chk-card" hidden>
-      <h2 class="nx-h3">확인이 필요한 것</h2>
-      <ul class="nx-chk" id="chk"></ul>
-    </article>
-  </div>
-  <article class="nx-card" id="flow-card" hidden>
-    <h2 class="nx-h3">전체 과정에서 지금 위치</h2>
-    <p class="nx-here" id="here"></p>
-    <ol class="nx-rail" id="rail" aria-label="전체 과정"></ol>
-    <details class="nx-fold">
-      <summary>과정 자세히 보기</summary>
-      <ol class="nx-flow" id="flow"></ol>
-    </details>
-  </article>
-  <article class="nx-card" id="next-card" hidden>
-    <h2 class="nx-h3">앞으로 진행될 일</h2>
-    <ul class="nx-next" id="next"></ul>
-  </article>
 </section>
 
 <section class="nx-page" id="sources" role="tabpanel" aria-labelledby="sources-h" hidden>
@@ -417,13 +553,13 @@ body{margin:0;background:var(--bg);color:var(--ink)}
   </div>
   <p class="nx-empty" id="in-empty" hidden>아직 모은 글이 없어요.</p>
   <div class="nx-stack" id="in-body" hidden>
+    <div class="nx-filter lt-stats" id="in-kinds" role="group" aria-label="분류로 거르기"></div>
     <article class="nx-card" id="in-src-card">
       <div><h3 class="nx-h3">곳마다 모은 수</h3><p class="nx-small nx-mute" id="in-src-sum"></p></div>
       <details class="nx-fold"><summary>곳마다 보기</summary><ul class="nx-srcs" id="in-src"></ul><p class="nx-small nx-mute" id="in-skip-why" hidden></p></details>
     </article>
     <article class="nx-card">
       <div><h3 class="nx-h3">글 목록</h3><p class="nx-small nx-mute" id="in-period"></p></div>
-      <div class="nx-filter" id="in-kinds" role="group" aria-label="분류로 거르기"></div>
       <div class="nx-tool-row">
         <label class="nx-search"><svg class="nx-i" viewBox="0 0 16 16" aria-hidden="true"><use href="#nx-i-search"/></svg><input type="search" id="in-q" placeholder="제목 · 곳 · 까닭에서 찾기" aria-label="모은 글에서 찾기" autocomplete="off"></label>
         <label class="nx-sel"><span>곳</span><select id="in-srcsel" aria-label="곳으로 거르기"></select></label>
@@ -446,17 +582,18 @@ body{margin:0;background:var(--bg);color:var(--ink)}
   <div class="nx-ph">
     <div class="nx-pt"><h2 class="nx-h2" id="criteria-h">실험할 것을 고르는 기준</h2><p class="nx-desc">모은 글 가운데 실제로 실험할 것을 고르는 질문이에요. 처음 기준을 이미 끝난 실험에 적용해 보고, 고친 기준을 새로 냈어요.</p></div>
   </div>
+  <dl class="lt-stats" id="crit-kpi" aria-label="고르는 기준 숫자 요약" hidden></dl>
   <p class="nx-small" id="crit-status"></p>
   <div class="nx-grid nx-g2">
     <article class="nx-card" id="crit-check-card" hidden>
       <h3 class="nx-h3">처음 기준을 이미 끝난 실험에 적용해 보니</h3>
       <div class="nx-stack" id="crit-check"></div>
-      <ul class="nx-bul" id="crit-found"></ul>
+      <details class="nx-fold" id="crit-found-wrap" hidden><summary>확인 결과 자세히 보기</summary><ul class="nx-bul" id="crit-found"></ul></details>
     </article>
     <article class="nx-card" id="crit-old-card" hidden>
       <h3 class="nx-h3">처음 기준 — 질문 <span id="crit-old-n"></span>개</h3>
       <ol class="nx-olist" id="crit-old"></ol>
-      <div id="crit-how-wrap" hidden><p class="nx-k" style="margin-bottom:8px">어떻게 다시 확인했나</p><ul class="nx-bul" id="crit-how"></ul></div>
+      <details class="nx-fold" id="crit-how-wrap" hidden><summary>어떻게 다시 확인했는지 보기</summary><ul class="nx-bul" id="crit-how"></ul></details>
     </article>
   </div>
   <article class="nx-card" id="crit-new-card" hidden>
@@ -470,6 +607,7 @@ body{margin:0;background:var(--bg);color:var(--ink)}
     <div class="nx-pt"><h2 class="nx-h2" id="cands-h">실험 후보</h2><p class="nx-desc">모은 글 가운데 실험 대상에 오른 것이에요. 왜 올랐는지, 왜 떨어졌는지를 함께 보여 줘요.</p></div>
     <p class="nx-small nx-mute" id="cand-asof"></p>
   </div>
+  <dl class="lt-stats" id="cand-kpi" aria-label="실험 후보 숫자 요약" hidden></dl>
   <p class="nx-empty" id="cand-none" hidden>아직 실험 후보에 오른 것이 없어요.</p>
   <div class="nx-stack" id="cand-cards"></div>
   <article class="nx-card" id="cand-drop-card" hidden>
@@ -483,11 +621,11 @@ body{margin:0;background:var(--bg);color:var(--ink)}
     <div class="nx-pt"><h2 class="nx-h2" id="exp-h">실험 기록</h2><p class="nx-desc" id="exp-desc"></p></div>
     <p class="nx-small nx-mute" id="exp-asof"></p>
   </div>
+  <dl class="lt-stats" id="exp-kpi" aria-label="실험 숫자 요약" hidden></dl>
   <article class="nx-card">
     <div class="nx-grid nx-g2">
       <div class="nx-stack">
-        <p class="nx-k">지금까지 한 실험</p>
-        <p class="nx-val"><b id="exp-total">—</b><span class="nx-unit">개</span></p>
+        <p class="nx-k">상태별로 나눈 수</p>
         <div class="nx-stack" id="exp-bar"></div>
       </div>
       <div class="nx-stack">
@@ -512,6 +650,7 @@ body{margin:0;background:var(--bg);color:var(--ink)}
 </section>
 
 <section class="nx-page" id="log" role="tabpanel" aria-label="기록" hidden>
+  <dl class="lt-stats" id="log-kpi" aria-label="기록 숫자 요약" hidden></dl>
   <div class="nx-stack" id="changes" hidden>
     <div class="nx-ph"><div class="nx-pt"><h2 class="nx-h2">달라진 것</h2><p class="nx-desc">자료가 바뀔 때마다 무엇이 어떻게 달라졌는지 쌓아 둬요. 새것부터 보여요.</p></div></div>
     <article class="nx-card"><div class="nx-chg" id="chg-all"></div></article>
@@ -537,6 +676,7 @@ body{margin:0;background:var(--bg);color:var(--ink)}
 
 <footer class="nx-foot">
   <button type="button" class="nx-btn" id="to-top">맨 위로</button>
+  <button type="button" class="nx-btn" id="bg-btn" aria-pressed="false">어두운 바탕으로 보기</button>
   <p id="f-mask"></p>
   <p>시각은 모두 한국 시각이에요.</p>
 </footer>
@@ -545,11 +685,11 @@ body{margin:0;background:var(--bg);color:var(--ink)}
 
 <script>
 (function () {
-  /* 자료 파일 이름(같은 폴더). 앞의 둘은 꼭 있어야 하고, 뒤의 셋은 없으면 그 덩어리를 감춘다 */
-  const FILES = { board: 'data.json', cells: 'cells.json', inbox: 'inbox.json', cands: 'candidates.json', extra: 'extra.json' };
+  /* 자료 파일 이름(같은 폴더). 앞의 둘은 꼭 있어야 하고, 뒤의 넷은 없으면 그 덩어리를 감춘다 */
+  const FILES = { board: 'data.json', cells: 'cells.json', inbox: 'inbox.json', cands: 'candidates.json', extra: 'extra.json', home: 'home.json' };
   const SVGNS = 'http://www.w3.org/2000/svg';
   const NONE = '아직 없음';
-  let B = {}, CM = {}, IN = {}, CA = {}, EX = {};
+  let B = {}, CM = {}, IN = {}, CA = {}, EX = {}, HM = {};
   const $ = (id) => document.getElementById(id);
   const obj = (v) => (v && typeof v === 'object' && !Array.isArray(v)) ? v : {};
   const arr = (v) => Array.isArray(v) ? v : [];
@@ -568,13 +708,13 @@ body{margin:0;background:var(--bg);color:var(--ink)}
     if (/^(버림|탈락|떨어짐)$/.test(w)) return 'drop';
     if (w === '가끔') return 'half';
     if (/막힘|못 봄|오류|실패/.test(w)) return 'err';
-    if (/주의|확인 필요|지연/.test(w)) return 'warn';
-    if (/대기|기다리는 중|결론 전|^열림$|^보류$/.test(w)) return 'wait';
+    if (/주의|확인 필요|지연|확인 대기|확인 기다림/.test(w)) return 'warn';
+    if (/대기|기다리는 중|결론 전|^열림$|^보류$|^예정$/.test(w)) return 'wait';
     if (/진행 중|실험 중|준비 중|확인하는 중/.test(w)) return 'run';
     if (/^(끝남|닫힘|완료)$/.test(w) || /끝$/.test(w)) return 'done';
     return 'todo';
   }
-  const SAY = { '열림': '결론 전', '닫힘': '끝남', '준비 전': '시작 전', '확인 대기': '답을 기다리는 중' };
+  const SAY = { '열림': '결론 전', '닫힘': '끝남', '준비 전': '시작 전', '확인 대기': '확인 기다림' };
   const say = (w) => SAY[String(w)] || String(w === null || w === undefined ? '' : w);
   function sumKind(key) { const k = String(key); if (/쓸 만/.test(k)) return 'good'; if (/가끔/.test(k)) return 'half'; if (/버/.test(k)) return 'drop'; if (/못/.test(k)) return 'err'; return null; }
 
@@ -640,74 +780,123 @@ body{margin:0;background:var(--bg);color:var(--ink)}
     });
     return rows.length;
   }
-  function hereIndex(flow) { const ks = flow.map((s) => kind(s['상태'])); let i = ks.lastIndexOf('run'); if (i < 0) i = ks.findIndex((k) => k !== 'done'); return i < 0 ? flow.length - 1 : i; }
+  /* 요약의 다섯 영역. 숫자는 모은 글 · 후보 · 단계 자료에서 바로 세고, 글은 home.json 에서 읽는다 */
+  const CHECKS = [['오류', 'err'], ['아직 정해지지 않은 것', 'warn']];
+  const NEXTS = ['다음 자동 작업', '예정된 일정'];
+  const STEP_SAY = { '확인 대기': '확인 기다림', '준비 전': '시작 전', '끝남': '완료', '닫힘': '완료', '끝': '완료' };
+  const has = (o, k) => Object.prototype.hasOwnProperty.call(o, k);
+  const text = (v) => (typeof v === 'string' && v.trim()) ? v : '';
+  /* 큰 숫자 칸 하나와, 그 칸을 늘어놓은 줄(값이 없는 칸은 뺀다 · 다 없으면 줄을 감춘다) */
+  function statTile(name, v, unit, hint) { const d = mk('div', 'lt-stat'), n = mk('dd', 'lt-num'); n.append(mk('b', null, v)); if (unit) n.append(mk('span', null, unit)); d.append(mk('dt', null, name), n); if (hint) d.append(mk('dd', 'lt-hint', hint)); return d; }
+  function tiles(id, rows) { const el = $(id); el.replaceChildren(); rows.forEach((r) => { if (r[1] !== null && r[1] !== undefined) el.append(statTile(r[0], r[1], r[2], r[3])); }); el.hidden = !el.children.length; }
+  function chip(k, label, n, unit) { const li = mk('li', 'lt-chip k-' + k + (n ? '' : ' is-zero')); li.append(ico(k)); put(li, label + ' '); li.append(mk('b', null, n)); put(li, unit); return li; }
+  function kvList(kvs) { const dl = mk('dl', 'lt-kv'); kvs.forEach((p) => { if (!p[1]) return; const w = mk('div'); w.append(mk('dt', null, p[0]), mk('dd', null, p[1])); dl.append(w); }); return dl; }
+  /* 제목과 한 줄만 보이고, 누르면 나머지가 펼쳐지는 줄 */
+  function foldRow(title, sub, kvs) {
+    const d = mk('details', 'lt-row'), s = mk('summary'), m = mk('div', 'lt-more'), dl = kvList(kvs);
+    s.append(mk('span', 'lt-t1', title || '—')); if (sub) s.append(mk('span', 'lt-t2', sub)); s.append(ico('chev'));
+    m.append(dl.children.length ? dl : mk('p', 'nx-mute', '자세한 내용이 아직 없어요.'));
+    d.append(s, m); return d;
+  }
+  /* 가로 막대 한 줄: 이름 · 수 · 막대(frac 은 0 ~ 1). out 이면 테두리만 있는 막대 */
+  function hbar(label, n, unit, frac, out) {
+    const d = mk('div'), top = mk('div', 'lt-hb-top'), v = mk('span', 'lt-val'); v.append(mk('b', null, n)); put(v, unit); top.append(mk('span', null, label), v); d.append(top);
+    const f = Math.max(0, Math.min(1, Number(frac) || 0));
+    if (f > 0) { const b = mk('div', 'lt-bar' + (out ? ' is-out' : '')); b.style.width = (f * 100).toFixed(2) + '%'; d.append(b); }
+    return d;
+  }
   function drawHome() {
     fill('t-line', B['한줄']); fill('t-asof', when(B['기준시각']) || '—'); fill('t-note', B['알림']); fill('t-mask', B['가림 표시']); fill('f-mask', B['가림 표시']);
-    const list = items(), total = list.length;
-    const kk = keyKind(list);
-    const detail = list.filter((g) => g['분류'] === kk || resultOf(g.id));
-    const nCand = arr(CA['후보']).length;
-    const now = $('say'); now.replaceChildren();
-    if (!total) put(now, '아직 모은 글이 없어요.');
-    else {
-      if (IN['기간']) put(now, when(IN['기간']) + '에 올라온 ');
-      now.append(document.createTextNode('글 '), mk('b', null, total + '건'), document.createTextNode('을 모아 '), mk('b', null, detail.length + '건'), document.createTextNode('을 자세히 봤어요. '));
-      if (nCand > 0) now.append(document.createTextNode('실험 후보가 '), mk('b', null, nCand + '개'), document.createTextNode(' 나왔어요.'));
-      else now.append(document.createTextNode('실험할 만한 것은 '), mk('b', null, '아직 없어요'), document.createTextNode('.'));
-    }
-    fill('fig-total', total); fill('fig-cand', nCand);
-    const kindWords = words('분류 보이는 말');
-    const tally = new Map(); list.forEach((g) => { const k = String(g['분류'] || '분류 없음'); tally.set(k, (tally.get(k) || 0) + 1); });
-    const cls = ['f-a4', 'f-a3', 'f-a2']; let n = 0;
-    const parts = Array.from(tally.keys()).sort((a, b) => (a === kk) - (b === kk) || tally.get(b) - tally.get(a)).map((k) => ({ name: kindWords[k] || k, n: tally.get(k), cls: k === kk ? 'f-a1' : cls[n++ % cls.length] }));
-    $('sift-wrap').hidden = !parts.length;
-    $('sift').replaceChildren(); if (parts.length) $('sift').append(segbar(parts, '모은 글을 나눈 수'), legend(parts, '건'));
-    const dropped = detail.filter((g) => { const r = resultOf(g.id); return r && r.drop; }).length, raised = detail.filter((g) => { const r = resultOf(g.id); return r && r.up; }).length;
-    const after = $('sift-after'); after.hidden = !detail.length; after.replaceChildren();
-    if (detail.length) put(after, '자세히 본 ' + detail.length + '건의 결과: 떨어짐 ' + dropped + '건 · 후보에 오름 ' + raised + '건' + (detail.length - dropped - raised > 0 ? ' · 결과 아직 없음 ' + (detail.length - dropped - raised) + '건' : ''));
+    const sum = obj(IN['요약']), list = items(), drops = arr(CA['떨어뜨린 것']), cands = arr(CA['후보']), flow = arr(B['흐름']);
+    const kw = words('분류 보이는 말'), gw = words('걸린 문 보이는 말'), hint = obj(HM['숫자 뜻']);
+    const count = (k) => num(sum[k]) !== null ? num(sum[k]) : list.filter((g) => String(g['분류'] || '분류 없음') === k).length;
+    const total = num(sum['모은 글']) !== null ? num(sum['모은 글']) : list.length, detail = count('더 볼 것'), nCand = cands.length;
+    const lines = arr(HM['진행 단계 한 줄']);
+    const steps = flow.map((s, i) => { const no = (s['순서'] !== null && s['순서'] !== undefined) ? s['순서'] : i + 1; const st = STEP_SAY[String(s['상태'])] || String(s['상태'] || NONE); return { no: no, name: s['단계'], st: st, k: kind(st), line: obj(lines.find((l) => l && String(l['순서']) === String(no)))['한 줄'], mean: s['뜻'], long: s['지금'] }; });
 
-    const cmp = obj(EX['견준 자료']);
-    const nChg = drawChanges($('chg-new'), false);
-    $('chg-more').hidden = changesRows().length <= nChg;
-    $('chg-card').hidden = !Array.isArray(EX['달라진 것']);
-    if (!nChg) $('chg-new').append(mk('p', 'nx-mute', '달라진 것이 없어요.'));
-    fill('chg-sub', cmp['앞'] ? when(cmp['앞']) + ' 자료와 ' + when(cmp['지금']) + ' 자료를 견줬어요.' : '');
+    /* 지금 전체 현황 */
+    fill('a-asof', HM['기준시각'] ? when(HM['기준시각']) + ' 기준' : '');
+    fill('a-say', text(HM['요약 한 문장']) || (!total ? '아직 모은 글이 없어요.' : '글 ' + total + '건을 모아 ' + detail + '건을 자세히 봤어요. ' + (nCand > 0 ? '실험 후보는 ' + nCand + '개예요.' : '실험할 만한 것은 아직 없어요.')));
+    const on = steps.filter((s) => s.st === '진행 중'), word = ['', '한', '두', '세', '네', '다섯', '여섯', '일곱', '여덟', '아홉', '열'][steps.length];
+    const stepHint = text(hint['지금 단계']) || (on.length ? (word ? word + ' 단계' : steps.length + '단계') + ' 가운데 ' + on.map((s) => "'" + s.name + "'").join(' · ') : (steps.length ? '지금 진행 중인 단계가 없어요' : ''));
+    tiles('a-stats', [['모은 글', total, '건', text(hint['모은 글'])], ['자세히 본 글', detail, '건', text(hint['자세히 본 글'])], ['실험 후보', nCand, '개', text(hint['실험 후보'])], ['지금 단계', on.length ? on.map((s) => s.no).join(' · ') : '—', on.length ? '단계' : '', stepHint]]);
 
-    const checks = arr(IN['출처별']).filter((s) => s['막힘'] === true).map((s) => ({ '종류': '오류', '무엇': String(s['출처'] || '이름 모를 곳') + ' 글을 받지 못했어요', '설명': s['메모'] || '', '다음에 할 일': null })).concat(arr(EX['확인이 필요한 것']));
-    $('chk-card').hidden = !checks.length;
-    const chk = $('chk'); chk.replaceChildren();
-    checks.forEach((c) => {
-      const li = mk('li'); const d = mk('details', 'nx-open'); d.open = wide(); const s = mk('summary');
-      s.append(badge(c['종류'] === '오류' ? '오류' : '주의'), mk('b', null, c['무엇'] || '—')); d.append(s);
-      if (c['설명']) d.append(mk('p', null, c['설명']));
-      if (c['다음에 할 일']) d.append(mk('p', null, '다음에 할 일: ' + c['다음에 할 일']));
-      li.append(d); chk.append(li);
+    /* 지금 확인할 일: 자료에 갈래가 아예 없으면 그 갈래는 통째로 빼고, 있는데 비어 있으면 '없어요' */
+    const chk = obj(HM['지금 확인할 일']), tally = $('b-tally'), groups = $('b-groups'); tally.replaceChildren(); groups.replaceChildren();
+    CHECKS.filter((c) => has(chk, c[0])).forEach((c) => {
+      const rows = arr(chk[c[0]]), sec = mk('div', 'lt-grp k-' + c[1]), h = mk('h3', 'lt-grp-h');
+      tally.append(chip(c[1], c[0], rows.length, '건'));
+      h.append(ico(c[1])); put(h, c[0]); sec.append(h);
+      if (!rows.length) sec.append(mk('p', 'lt-empty', '없어요'));
+      rows.forEach((r) => sec.append(foldRow(r['제목'], r['한 줄 까닭'], [['설명', r['설명']], ['까닭', r['까닭']], ['다음에 할 일', r['다음에 할 일']], ['기한', r['기한']], ['답이 없는 동안', r['답이 없는 동안']], ['끝나는 조건', r['끝나는 조건']]])));
+      groups.append(sec);
     });
+    $('sec-b').hidden = !groups.children.length;
 
-    const flow = arr(B['흐름']);
-    $('flow-card').hidden = !flow.length;
-    const rail = $('rail'), fl = $('flow'), here = $('here'); rail.replaceChildren(); fl.replaceChildren(); here.replaceChildren();
-    if (flow.length) {
-      const at = hereIndex(flow);
-      here.append(mk('b', null, flow[at]['순서'] !== undefined ? flow[at]['순서'] : at + 1)); put(here, ' / ' + flow.length + '단계 · ' + (flow[at]['단계'] || ''));
-      flow.forEach((s, i) => {
-        const k = kind(s['상태']), no = s['순서'] !== undefined ? s['순서'] : i + 1;
-        const li = mk('li', 'nx-rs' + (i === at ? ' is-here' : '') + (k === 'todo' ? ' is-off' : ''));
-        li.append(mk('span', 'nx-rs-no', no), mk('span', 'nx-rs-name', s['단계'] || '—'), badge(s['상태'] || NONE));
-        if (i === at) li.append(mk('span', 'nx-rs-now', '지금 여기'));
-        rail.append(li);
-        const d = mk('li', 'nx-fl'); const body = mk('div', 'nx-fl-body'); const head = mk('div', 'nx-fl-head');
-        head.append(mk('b', null, s['단계'] || '—'), badge(s['상태'] || NONE)); body.append(head);
-        if (s['지금']) body.append(mk('p', null, s['지금']));
-        if (s['뜻']) body.append(mk('p', 'nx-small nx-mute', s['뜻']));
-        d.append(mk('span', 'nx-fl-no', no), body); fl.append(d);
-      });
-    }
+    /* 앞으로 진행할 일: 묶음마다 세 줄까지, 넷째 줄부터는 접어 둔다 */
+    const nx = obj(HM['앞으로 진행할 일']), eg = $('e-groups'); eg.replaceChildren();
+    const line = (n) => { const o = (n && typeof n === 'object') ? n : { '무엇': n }; const li = mk('li', 'lt-e-item'); if (o['언제']) li.append(mk('b', null, when(o['언제']))); li.append(mk('span', null, o['무엇'] || '—')); return li; };
+    NEXTS.filter((k) => has(nx, k)).forEach((k) => {
+      const rows = arr(nx[k]), sec = mk('div', 'lt-e-group'), ul = mk('ul');
+      sec.append(mk('h3', 'lt-sub-h', k));
+      if (!rows.length) sec.append(mk('p', 'lt-empty', text(nx[k + '이 없을 때']) || '없어요'));
+      rows.slice(0, 3).forEach((n) => ul.append(line(n)));
+      if (rows.length > 3) { const li = mk('li'), d = mk('details', 'nx-fold'), more = mk('ul'); rows.slice(3).forEach((n) => more.append(line(n))); d.append(mk('summary', null, (rows.length - 3) + '가지 더 보기'), more); li.append(d); ul.append(li); }
+      if (rows.length) sec.append(ul);
+      if (k === NEXTS[0] && rows.length && text(nx['자동 작업 알림'])) sec.append(mk('p', 'lt-note', nx['자동 작업 알림']));
+      eg.append(sec);
+    });
+    $('sec-e').hidden = !eg.children.length;
 
-    const nexts = arr(EX['앞으로 진행될 일']).map((x, i) => Object.assign({ no: i }, x)).sort((a, b) => ((!a['언제'] || a['언제'] === NONE) - (!b['언제'] || b['언제'] === NONE)) || a.no - b.no);
-    $('next-card').hidden = !nexts.length;
-    const nx = $('next'); nx.replaceChildren();
-    nexts.forEach((x) => { const none = !x['언제'] || x['언제'] === NONE; const li = mk('li', none ? 'is-none' : null); li.append(mk('b', null, none ? '날짜 ' + NONE : when(x['언제'])), mk('p', null, x['무엇'] || '—')); nx.append(li); });
+    /* 전체 진행 단계: 지금 하는 단계(진행 중)만 크게, 한 줄을 붙인다 */
+    $('sec-d').hidden = !steps.length;
+    const dt = $('d-tally'); dt.replaceChildren();
+    [['완료', 'done'], ['진행 중', 'run'], ['확인 기다림', 'warn'], ['예정', 'wait'], ['시작 전', 'todo']].forEach((x) => dt.append(chip(x[1], x[0], steps.filter((s) => s.st === x[0]).length, '개')));
+    const ol = $('d-steps'); ol.replaceChildren();
+    steps.forEach((s) => {
+      const now = s.k === 'run', li = mk('li', 'lt-step k-' + s.k + (now ? ' is-now' : '')), d = mk('details'), sm = mk('summary'), m = mk('div', 'lt-more');
+      sm.append(mk('span', 'lt-step-name', s.name || '—'), badge(s.st), ico('chev'));
+      if (now && s.line) sm.append(mk('span', 'lt-step-line', s.line));
+      m.append(kvList([['이 단계에서 하는 일', s.mean], ['지금', now ? null : s.line], ['자세히', s.long]]));
+      d.append(sm, m); li.append(mk('span', 'lt-node', s.no), d); ol.append(li);
+    });
+    $('home-side').hidden = $('sec-e').hidden && $('sec-d').hidden;
+    $('home-grid').classList.toggle('is-one', $('sec-b').hidden || $('home-side').hidden);
+
+    /* 자료 검토 현황: 분류 막대 · 검토 비율 · 자세히 본 글의 결과 · 날마다 */
+    const known = ['매매와 무관', '이미 해 본 종류', '더 볼 것'], pos = (k) => { const i = known.indexOf(k); return i < 0 ? known.length : i; };
+    const sumKeys = Object.keys(sum).filter((k) => k !== '모은 글' && num(sum[k]) !== null);
+    const catKeys = sumKeys.length ? sumKeys : Array.from(new Set(list.map((g) => String(g['분류'] || '분류 없음'))));
+    const cats = catKeys.sort((a, b) => pos(a) - pos(b)).map((k) => ({ name: kw[k] || k, n: count(k), cls: 'lt-s' + (Math.min(pos(k), 2) + 1) }));
+    const sorted = cats.reduce((a, c) => a + c.n, 0);
+    const st = $('c-stack'), lg = $('c-lgd'); st.replaceChildren(); lg.replaceChildren();
+    cats.forEach((c) => {
+      if (c.n > 0) { const sg = mk('i', c.cls); sg.style.flexGrow = String(c.n); if (!/■/.test(c.name)) sg.title = c.name + ' ' + c.n + '건'; st.append(sg); }
+      const li = mk('li'), v = mk('span', 'lt-val'); v.append(mk('b', null, c.n)); put(v, '건'); li.append(mk('i', 'lt-sw ' + c.cls), mk('span', null, c.name), v); lg.append(li);
+    });
+    st.setAttribute('aria-label', '모은 글을 분류마다 나눈 수: ' + cats.map((c) => c.n + '건').join(', '));
+    fill('c-total', total ? '전체 ' + total + '건' : '');
+    const rt = $('c-ratio'); rt.replaceChildren();
+    if (total && cats.length) [['분류를 마친 글', sorted], ['자세히 본 글', detail]].forEach((r) => {
+      const p = Math.round(r[1] / total * 100), li = mk('li'), top = mk('div', 'lt-ratio-top'), mt = mk('div', 'lt-meter'), f = mk('i');
+      top.append(mk('span', null, r[0]), mk('span', null, total + '건 가운데 ' + r[1] + '건 (' + p + '%)'));
+      f.style.width = Math.max(0, Math.min(100, p)) + '%'; if (p > 0) mt.append(f);
+      li.append(top, mt); rt.append(li);
+    });
+    $('c-cat').hidden = !cats.length;
+    const from = (x) => arr(x['온 글']).length > 0, byGate = new Map();
+    drops.filter(from).forEach((d) => { const k = String(d['걸린 문'] || '까닭 모름'); byGate.set(k, (byGate.get(k) || 0) + 1); });
+    const res = Array.from(byGate, (e) => ({ name: gw[e[0]] || e[0], n: e[1] })).sort((a, b) => b.n - a.n);
+    if (cands.filter(from).length) res.unshift({ name: '실험 후보에 오름', n: cands.filter(from).length });
+    const resTotal = res.reduce((a, r) => a + r.n, 0), rb = $('c-res'); rb.replaceChildren();
+    res.forEach((r) => rb.append(hbar(r.name, r.n, '건', resTotal ? r.n / resTotal : 0, false)));
+    fill('c-res-total', resTotal ? resTotal + '건 가운데' : ''); $('c-res-part').hidden = !res.length;
+    const days = arr(HM['날마다']).slice().sort((a, b) => String(b['날짜'] || '').localeCompare(String(a['날짜'] || ''))), dmax = Math.max(1, ...days.map((d) => num(d['모은 글']) || 0)), du = $('c-days'); du.replaceChildren();
+    days.forEach((d) => { const li = mk('li', 'lt-day'), all = num(d['모은 글']) || 0, det = num(d['자세히 본 글']) || 0; li.append(mk('p', 'lt-day-date', d['날짜'] ? when(d['날짜']) : '날짜 모름'), hbar('모은 글', all, '건', all / dmax, true), hbar('자세히 본 글', det, '건', det / dmax, false)); du.append(li); });
+    fill('c-days-note', text(HM['날마다 알림'])); $('c-day-part').hidden = !days.length && !text(HM['날마다 알림']);
+    const ideas = drops.filter((d) => !from(d)).length;
+    $('c-foot').hidden = !ideas; fill('c-foot-text', ideas ? '글 말고 AI가 직접 세워 본 생각 ' + ideas + '가지도 모두 떨어졌어요.' : '');
+    $('sec-c').hidden = $('c-cat').hidden && $('c-res-part').hidden && $('c-day-part').hidden;
   }
 
   /* ---------- 볼 곳 ---------- */
@@ -787,7 +976,7 @@ body{margin:0;background:var(--bg);color:var(--ink)}
     const list = items(), kindWords = words('분류 보이는 말');
     $('in-empty').hidden = list.length > 0; $('in-body').hidden = !list.length;
     fill('in-asof', IN['기준시각'] ? '기준 ' + when(IN['기준시각']) : '');
-    fill('in-period', '분류와 곳으로 거르고, 낱말로 찾을 수 있어요.' + (IN['기간'] ? ' 모은 기간은 ' + when(IN['기간']) + '이에요.' : ''));
+    fill('in-period', '맨 위 숫자 칸을 누르면 그 분류만 보여요. 곳으로 거르거나 낱말로 찾을 수도 있어요.' +(IN['기간'] ? ' 모은 기간은 ' + when(IN['기간']) + '이에요.' : ''));
     const srcs = arr(IN['출처별']), skip = obj(EX['이번에 열지 않은 곳']), skipped = arr(skip['곳']);
     $('in-src-card').hidden = !srcs.length && !skipped.length;
     const blocked = srcs.filter((s) => s['막힘'] === true).length;
@@ -798,8 +987,8 @@ body{margin:0;background:var(--bg);color:var(--ink)}
     skipped.forEach((nm) => { const li = line(nm, null); li.querySelector('.nx-src-name').append(badge('시작 전', '이번에 열지 않음')); su.append(li); });
     const sw = $('in-skip-why'); sw.hidden = !(skipped.length && skip['까닭']); sw.replaceChildren(); if (!sw.hidden) put(sw, '이번에 열지 않은 까닭: ' + skip['까닭']);
     const kinds = $('in-kinds'); kinds.replaceChildren();
-    const add = (key, label, n) => { const b = mk('button', 'nx-fbtn'); b.type = 'button'; b.setAttribute('aria-pressed', String(F.kind === key)); put(b, label + ' '); b.append(mk('b', null, n)); b.addEventListener('click', () => { F.kind = key; F.shown = 20; drawInbox(); }); kinds.append(b); };
-    add('', '전체', list.length);
+    const add = (key, label, n) => { const b = mk('button', 'nx-fbtn'); b.type = 'button'; b.setAttribute('aria-pressed', String(F.kind === key)); const nb = mk('span', 'lt-num'); nb.append(mk('b', null, n), mk('span', null, '건')); b.append(mk('span', null, label), nb); b.addEventListener('click', () => { F.kind = key; F.shown = 20; drawInbox(); }); kinds.append(b); };
+    add('', '모은 글 전체', list.length);
     const kk = keyKind(list);
     Array.from(new Set(list.map((g) => String(g['분류'] || '')))).sort((a, b) => (b === kk) - (a === kk)).forEach((k) => add(k, kindWords[k] || k || '분류 없음', list.filter((g) => String(g['분류'] || '') === k).length));
     const sel = $('in-srcsel'); const names = Array.from(new Set(list.map((g) => String(g['출처'] || '')).filter(Boolean))).sort((a, b) => a.localeCompare(b, 'ko'));
@@ -821,6 +1010,8 @@ body{margin:0;background:var(--bg);color:var(--ink)}
     const g = (re) => { const k = keys.find((x) => re.test(x)); return k ? num(nums[k]) : null; };
     const total = g(/^끝난/), caught = g(/미리/), missed = g(/안 걸린/), only = g(/돌려/);
     const found = arr(c['확인 결과']);
+    tiles('crit-kpi', [['끝난 실험', total, '개'], ['처음 기준이 미리 걸렀을 실험', caught, '개'], ['어느 질문에도 안 걸린 실험', missed, '개'], ['실험해 봐야만 알 수 있던 것', only, '개']]);
+    $('crit-found-wrap').hidden = !found.length;
     $('crit-check-card').hidden = total === null && !found.length;
     const box = $('crit-check'); box.replaceChildren();
     if ([total, caught, missed].every((x) => x !== null) && caught + missed === total) {
@@ -843,6 +1034,7 @@ body{margin:0;background:var(--bg);color:var(--ink)}
     const cands = arr(CA['후보']), drops = arr(CA['떨어뜨린 것']), gates = words('걸린 문 보이는 말');
     fill('cand-asof', CA['기준시각'] ? '기준 ' + when(CA['기준시각']) : '');
     $('cand-none').hidden = cands.length > 0;
+    tiles('cand-kpi', [['실험 후보', cands.length, '개'], ['떨어뜨린 것', drops.length, '개']]);
     const box = $('cand-cards'); box.replaceChildren(); box.hidden = !cands.length;
     const pass = (v) => (v === true || v === '통과') ? '통과' : ((v === false || v === '탈락') ? '탈락' : '모름');
     cands.forEach((x) => {
@@ -880,7 +1072,7 @@ body{margin:0;background:var(--bg);color:var(--ink)}
     fill('exp-desc', e['읽는 법']); fill('exp-asof', e['기준'] ? '기준 ' + when(e['기준']) : '');
     const tally = new Map(); list.forEach((c) => tally.set(c.st, (tally.get(c.st) || 0) + 1));
     const totalKey = Object.keys(sum).find((k) => /전체/.test(k));
-    fill('exp-total', totalKey ? sum[totalKey] : list.length);
+    tiles('exp-kpi', [['지금까지 한 실험', totalKey ? sum[totalKey] : list.length, '개'], ['끝난 실험', tally.get('끝남') || 0, '개'], ['결론 전', tally.get('열림') || 0, '개'], ['진행 중', tally.get('진행 중') || 0, '개']]);
     const order = ['끝남', '열림', '진행 중'];
     const parts = Array.from(tally.keys()).sort((a, b) => order.indexOf(a) - order.indexOf(b)).map((k) => ({ name: say(k), n: tally.get(k), cls: 'f-' + kind(k) }));
     const bar = $('exp-bar'); bar.replaceChildren(); if (parts.length) bar.append(segbar(parts, '상태별 실험 수'), legend(parts, '개', true));
@@ -907,7 +1099,8 @@ body{margin:0;background:var(--bg);color:var(--ink)}
   }
   function drawLog() {
     $('changes').hidden = !drawChanges($('chg-all'), true);
-    const res = arr(B['조사기록']); $('research').hidden = !res.length; const ol = $('res-list'); ol.replaceChildren();
+    const res = arr(B['조사기록']); $('research').hidden = !res.length;
+    tiles('log-kpi', [['달라진 것', changesRows().length || null, '건'], ['조사 기록', res.length || null, '건']]); const ol = $('res-list'); ol.replaceChildren();
     res.forEach((r) => {
       const li = mk('li', 'nx-tl-item'); const node = mk('span', 'nx-tl-node'); node.append(ico(kind(r['상태']))); const body = mk('div', 'nx-tl-body'); const top = mk('div', 'nx-tl-top');
       top.append(mk('span', null, when(r['날짜'])), badge(r['상태'] || NONE)); body.append(top, mk('p', 'nx-item-t', r['제목'] || '—'));
@@ -940,6 +1133,15 @@ body{margin:0;background:var(--bg);color:var(--ink)}
   });
   document.querySelectorAll('.nx [data-go]').forEach((b) => b.addEventListener('click', () => go(b.getAttribute('data-go'))));
   $('to-top').addEventListener('click', () => $('top').scrollIntoView({ block: 'start' }));
+  /* 바탕색: 밝은 바탕이 기본(기기 설정을 따르지 않는다). 맨 아래 단추로 어두운 바탕을 고르면 그 기기에만 기억한다 */
+  function setBg(dark, keep) {
+    document.documentElement.setAttribute('data-bg', dark ? 'dark' : 'light');
+    const b = $('bg-btn'); b.textContent = dark ? '밝은 바탕으로 보기' : '어두운 바탕으로 보기'; b.setAttribute('aria-pressed', String(dark));
+    const tc = document.querySelector('meta[name="theme-color"]'); if (tc) tc.setAttribute('content', dark ? '#15171a' : '#f3f2ef');
+    if (keep) { try { localStorage.setItem('rule-lab-bg', dark ? 'dark' : 'light'); } catch (e) { /* 기억하지 못해도 화면은 바뀐다 */ } }
+  }
+  $('bg-btn').addEventListener('click', () => setBg(document.documentElement.getAttribute('data-bg') !== 'dark', true));
+  try { if (localStorage.getItem('rule-lab-bg') === 'dark') setBg(true, false); } catch (e) { /* 기억해 둔 것이 없다 */ }
   /* 폰 너비와 넓은 화면을 오갈 때 접고 펼치는 모양을 다시 맞춘다 */
   let wasWide = wide();
   window.addEventListener('resize', () => { const w = wide(); if (w !== wasWide && !$('app').classList.contains('is-wait')) { wasWide = w; drawHome(); drawSources(); drawLog(); } });
@@ -952,8 +1154,8 @@ body{margin:0;background:var(--bg);color:var(--ink)}
   async function load() {
     const box = $('load'), retry = $('retry'); box.hidden = false; retry.hidden = true; $('load-text').textContent = '자료를 불러오는 중이에요.';
     try {
-      const got = await Promise.all([getJson(FILES.board, true), getJson(FILES.cells, true), getJson(FILES.inbox), getJson(FILES.cands), getJson(FILES.extra)]);
-      B = got[0]; CM = got[1]; IN = got[2]; CA = got[3]; EX = got[4];
+      const got = await Promise.all([getJson(FILES.board, true), getJson(FILES.cells, true), getJson(FILES.inbox), getJson(FILES.cands), getJson(FILES.extra), getJson(FILES.home)]);
+      B = got[0]; CM = got[1]; IN = got[2]; CA = got[3]; EX = got[4]; HM = got[5];
       box.hidden = true; $('app').classList.remove('is-wait'); renderAll();
       const h = String(location.hash || '').slice(1); if (h && /^[a-z-]+$/.test(h) && h !== 'home') go(h);
     } catch (e) {

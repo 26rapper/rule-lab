@@ -5,7 +5,7 @@
   "name_ko": "규칙 연구실",
   "kind": "log",
   "status": "ACTIVE",
-  "line": "새 매매 규칙을 찾는 과정을 그대로 보여 주는 기록",
+  "line": "새 매매 규칙을 찾는 과정을 보여 주는 기록",
   "url": "https://26rapper.github.io/rule-lab/",
   "started": "2026-11-21",
   "icon": { "src": "https://26rapper.github.io/rule-lab/icon.svg", "frame": { "position": "50% 50%", "zoom": 1 } },
