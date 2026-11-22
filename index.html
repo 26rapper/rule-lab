@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>규칙 연구실 — Rule Lab</title>
 <meta name="description" content="새 매매 규칙을 찾는 과정을 그대로 보여 주는 기록">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f5f1ea" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0c0a09" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0c0a09">
 <meta property="og:type" content="website">
 <meta property="og:title" content="규칙 연구실 — Rule Lab">
 <meta property="og:description" content="새 매매 규칙을 찾는 과정을 그대로 보여 주는 기록">
@@ -15,9 +14,8 @@
 <style>
 /* 규칙 연구실 공개판. 화면 다섯(요약 · 볼 곳 · 고르기 · 실험 · 기록)을 위의 단추로 고른다.
    글과 숫자는 옆의 자료 파일 두 개에서 읽는다. 이 파일에는 자료의 글을 적어 두지 않는다.
-   바깥 글꼴 · 바깥 스크립트 · 바깥 요청은 없다. 색은 아래 :root 한 곳에서 정한다. */
-:root{--bg:#f5f1ea;--nx-card:#fffdf9;--nx-ink:#1f1a16;--nx-mute:#6b6259;--nx-line:#e5ded3;--nx-a:#56722f;--nx-w:#f2a46b;color-scheme:light}
-@media (prefers-color-scheme:dark){:root{--bg:#0c0a09;--nx-card:#15120f;--nx-ink:#f3eee7;--nx-mute:#bfb6ab;--nx-line:#2d2925;--nx-a:#dcecbf;--nx-w:#f2a46b;color-scheme:dark}}
+   바깥 글꼴 · 바깥 스크립트 · 바깥 요청은 없다. 색은 아래 :root 한 곳에서 정한다(문로그와 같은 밤 색 · 기기 설정과 상관없이 늘 이 색). */
+:root{--bg:#0c0a09;--nx-card:#15120f;--nx-ink:#f3eee7;--nx-mute:#bfb6ab;--nx-line:#2d2925;--nx-a:#dcecbf;--nx-w:#f2a46b;color-scheme:dark}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--nx-ink)}
 .nx{--nx-n1:color-mix(in srgb,var(--nx-mute) 72%,var(--nx-card));--nx-n2:color-mix(in srgb,var(--nx-mute) 42%,var(--nx-card));--nx-n3:color-mix(in srgb,var(--nx-mute) 20%,var(--nx-card));--nx-soft:color-mix(in srgb,var(--nx-ink) 4%,var(--nx-card));--nx-r:12px;--nx-sh:0 1px 2px color-mix(in srgb,var(--nx-ink) 5%,transparent),0 10px 28px -16px color-mix(in srgb,var(--nx-ink) 22%,transparent);
